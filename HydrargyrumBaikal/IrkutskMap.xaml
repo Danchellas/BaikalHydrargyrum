@@ -1,0 +1,41 @@
+﻿<Window x:Class="HydrargyrumBaikal.IrkutskMap"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HydrargyrumBaikal" xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+        mc:Ignorable="d"
+        Title="IrkutskMap" Height="650" Width="1280">
+    <Grid Margin="0,10,0,13" HorizontalAlignment="Center" Width="1260">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="41*"/>
+            <ColumnDefinition Width="19*"/>
+        </Grid.ColumnDefinitions>
+        <CheckBox x:Name="Point1" Content="Точка 1" HorizontalAlignment="Left" Margin="61,96,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="25" Width="87"/>
+        <CheckBox x:Name="Point2" Content="Точка 2" HorizontalAlignment="Left" Margin="61,126,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="87"/>
+        <CheckBox x:Name="Point3" Content="Точка 3" HorizontalAlignment="Left" Margin="61,157,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="87"/>
+        <CheckBox x:Name="Point4" Content="Точка 4" HorizontalAlignment="Left" Margin="61,188,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="87"/>
+        <CheckBox x:Name="Point5" Content="Точка 5" HorizontalAlignment="Left" Margin="61,219,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="87"/>
+        <CheckBox x:Name="Point6" Content="Точка 6" HorizontalAlignment="Left" Margin="61,250,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="87"/>
+        <CheckBox x:Name="Point7" Content="Точка 7" HorizontalAlignment="Left" Margin="61,281,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="87"/>
+        <CheckBox x:Name="Point8" Content="Точка 8" HorizontalAlignment="Left" Margin="61,312,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="87"/>
+        <CheckBox x:Name="Point9" Content="Точка 9" HorizontalAlignment="Left" Margin="61,343,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="87"/>
+        <CheckBox x:Name="Point10" Content="Точка 10" HorizontalAlignment="Left" Margin="61,374,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="87"/>
+        <CheckBox x:Name="Point11" Content="Точка 11" HorizontalAlignment="Left" Margin="240,96,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="25" Width="87"/>
+        <CheckBox x:Name="Point12" Content="Точка 12" HorizontalAlignment="Left" Margin="240,126,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="87"/>
+        <CheckBox x:Name="Point13" Content="Точка 13" HorizontalAlignment="Left" Margin="240,157,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="87"/>
+        <CheckBox x:Name="Point14" Content="Точка 14" HorizontalAlignment="Left" Margin="240,188,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="87"/>
+        <CheckBox x:Name="Point15" Content="Точка 15" HorizontalAlignment="Left" Margin="240,219,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="87"/>
+        <CheckBox x:Name="Point16" Content="Точка 16" HorizontalAlignment="Left" Margin="240,250,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="87"/>
+        <CheckBox x:Name="Point17" Content="Точка 17" HorizontalAlignment="Left" Margin="240,281,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="87"/>
+        <CheckBox x:Name="Point18" Content="Точка 18" HorizontalAlignment="Left" Margin="240,312,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="87"/>
+        <CheckBox x:Name="Point19" Content="Точка 19" HorizontalAlignment="Left" Margin="240,343,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="87"/>
+        <CheckBox x:Name="Point20" Content="Точка 20" HorizontalAlignment="Left" Margin="240,374,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="106"/>
+        <Button x:Name="ExportButton" Grid.Column="1" Content="Сохранить" HorizontalAlignment="Left" Margin="21,542,0,0" VerticalAlignment="Top" Height="39" Width="166" FontSize="16" FontFamily="Bahnschrift SemiBold"/>
+        <Button x:Name="BDButton" Grid.Column="1" Content="Перейти к базе данных" HorizontalAlignment="Left" Margin="203,542,0,0" VerticalAlignment="Top" Height="39" Width="180" FontSize="16" FontFamily="Bahnschrift SemiBold" Click="BDButton_Click"/>
+        <Button x:Name="VizualisationButton" Grid.Column="1" Content="Визуализировать" HorizontalAlignment="Center" Margin="0,441,0,0" VerticalAlignment="Top" Height="39" Width="358" FontSize="16" FontFamily="Bahnschrift SemiBold" Click="VizualisationButton_Click"/>
+        <Label x:Name="label3" Grid.Column="1" Content="Выберите точки для визуализации полей" HorizontalAlignment="Left" Margin="25,37,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift SemiBold" FontSize="18" Height="33" Width="390"/>
+        <m:Map x:Name="HydragyrumMap" CredentialsProvider="AiW95rnA8msG-ACjKnH_wr3oVKUiz4MtUGC1GY4wqg6Vqp10WfOzBA8SERgNqKa1" Center="52.2864, 104.3050" ZoomLevel="10" Mode="AerialWithLabels">
+        </m:Map>
+    </Grid>
+</Window>

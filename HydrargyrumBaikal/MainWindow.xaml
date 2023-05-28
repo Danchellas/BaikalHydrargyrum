@@ -1,0 +1,22 @@
+﻿<Window x:Class="HydrargyrumBaikal.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HydrargyrumBaikal"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="1000">
+    <Grid Margin="10,0,-10,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition Width="122*"/>
+            <ColumnDefinition Width="345*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="IrkustkButton" Content="Иркутск" HorizontalAlignment="Left" Margin="33,298,0,0" VerticalAlignment="Top" Width="200" Height="45" FontSize="20" FontFamily="Bahnschrift SemiBold" Grid.Column="1" Click="IrkustkButton_Click"/>
+        <Button x:Name="AngarskButton" Content="Ангарск" HorizontalAlignment="Left" Margin="90,298,0,0" VerticalAlignment="Top" Width="200" Height="45" FontSize="20" FontFamily="Bahnschrift SemiBold" Grid.Column="2"/>
+        <Button x:Name="ShelehoxButton" Content="Шелехов" HorizontalAlignment="Left" Margin="389,298,0,0" VerticalAlignment="Top" Width="200" Height="46" FontSize="20" FontFamily="Bahnschrift SemiBold" Grid.Column="2"/>
+        <Label x:Name="Label1" Content="Расчет и визуализация полей ртутного загрязнения по данным биомониторинга городов" HorizontalAlignment="Left" Margin="39,55,0,0" VerticalAlignment="Top" FontSize="22" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Height="40" Width="918" RenderTransformOrigin="0.501,0.746" Grid.ColumnSpan="3"/>
+        <Label x:Name="Label2" Content="Выберите город для дальнейшего предосмотра и работы" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" FontFamily="Bahnschrift SemiBold" Grid.ColumnSpan="2" Margin="163,0,0,0" Grid.Column="1"/>
+
+    </Grid>
+</Window>
