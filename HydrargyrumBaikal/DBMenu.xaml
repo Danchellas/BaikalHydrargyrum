@@ -6,14 +6,38 @@
         xmlns:local="clr-namespace:HydrargyrumBaikal"
         mc:Ignorable="d"
         Title="DBMenu" Height="500" Width="1000">
-    <Grid>
+    <Grid x:Name="MainGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="405*"/>
             <RowDefinition Height="79*"/>
         </Grid.RowDefinitions>
-        <Button x:Name="ChangeButton" Content="Изменить" HorizontalAlignment="Left" Margin="78,0,0,0" VerticalAlignment="Center" Height="39" Width="154" FontFamily="Bahnschrift SemiBold" FontSize="16" Grid.Row="1"/>
-        <Button x:Name="DeleteButton" Content="Удалить" HorizontalAlignment="Left" Margin="302,0,0,0" VerticalAlignment="Center" Height="39" Width="154" FontFamily="Bahnschrift SemiBold" FontSize="16" Grid.Row="1"/>
-        <Button x:Name="AddButton" Content="Добавить" HorizontalAlignment="Left" Margin="526,0,0,0" VerticalAlignment="Center" Height="39" Width="154" FontFamily="Bahnschrift SemiBold" FontSize="16" Grid.Row="1"/>
-
+        <Button x:Name="ChangeButton" Content="Изменить" HorizontalAlignment="Left" Margin="720,0,0,0" VerticalAlignment="Center" Height="39" Width="154" FontFamily="Bahnschrift SemiBold" FontSize="16" Grid.Row="1"/>
+        <Button x:Name="DeleteButton" Content="Удалить" HorizontalAlignment="Left" VerticalAlignment="Center" Height="39" Width="154" FontFamily="Bahnschrift SemiBold" FontSize="16" Grid.Row="1" Margin="172,0,0,0"/>
+        <Button x:Name="AddButton" Content="Добавить" HorizontalAlignment="Left" Margin="447,0,0,0" VerticalAlignment="Center" Height="39" Width="154" FontFamily="Bahnschrift SemiBold" FontSize="16" Grid.Row="1" />
+        <DataGrid x:Name="DGridHydrargyrum" Margin="0,0,227,0" DataContext="{Binding}">
+            <DataGrid.Columns>
+                <!--<DataGridTextColumn Header="Номер точки" Binding="{Binding Number}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Коордтнаты по широте" Binding="{Binding Latitude}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Координаты по долготе" Binding="{Binding Longitude}" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Концентрация(мг/г)" Binding="{Binding Sample}" Width="*"></DataGridTextColumn>-->
+                <!--<DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Редактировать" Name="EditButton"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>-->
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBlock x:Name="TextBlock_nubmer" HorizontalAlignment="Left" Margin="802,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="74" Height="17"><Run Language="ru-ru" Text="Номер точки"/></TextBlock>
+        <TextBlock x:Name="TextBlock_nubmer_Copy" HorizontalAlignment="Left" Margin="799,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="54" Height="17"><Run Language="ru-ru" Text="Широта"/></TextBlock>
+        <TextBlock x:Name="TextBlock_nubmer_Copy1" HorizontalAlignment="Left" Margin="802,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="54" Height="16"><Run Language="ru-ru" Text="Долгота"/></TextBlock>
+        <TextBlock x:Name="TextBlock_nubmer_Copy2" HorizontalAlignment="Left" Margin="802,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="114" Height="20"><Run Language="ru-ru" Text="Концентрация мг"/><Run Text="/"/><Run Language="ru-ru" Text="г"/></TextBlock>
+        <TextBox x:Name="TextBox_Longi" HorizontalAlignment="Left" Margin="794,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="26"/>
+        <TextBox x:Name="TextBox_Sample" HorizontalAlignment="Left" Margin="794,269,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181" Height="28"/>
+        <TextBox x:Name="TextBox_Lati" HorizontalAlignment="Left" Margin="792,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="26"/>
+        <TextBox x:Name="TextBox_Number" HorizontalAlignment="Left" Margin="792,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="26"/>
+        <TextBlock x:Name="TextBlock_nubmer_Copy3" HorizontalAlignment="Left" Margin="802,316,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" Height="20"><Run Text="Город "/><Run Language="ru-ru" Text="расположения"/><Run Text=" точк"/><Run Language="ru-ru" Text="и"/><LineBreak/><Run/></TextBlock>
+        <TextBox x:Name="TextBox_City" HorizontalAlignment="Left" Margin="794,341,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181" Height="28" />
     </Grid>
 </Window>

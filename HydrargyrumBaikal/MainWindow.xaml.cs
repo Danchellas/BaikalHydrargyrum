@@ -30,5 +30,11 @@ namespace HydrargyrumBaikal
             IrkutskMap IrkutskMap = new IrkutskMap();
             IrkutskMap.Show();
         }
+
+        private void AngarskButton_Click(object sender, RoutedEventArgs e)
+        {
+            AngarskMap AngarskMap = new AngarskMap();
+            AngarskMap.Show();
+        }
     }
 }
