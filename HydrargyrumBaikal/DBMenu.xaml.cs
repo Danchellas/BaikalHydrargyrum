@@ -22,6 +22,7 @@ namespace HydrargyrumBaikal
     /// </summary>
     public partial class DBMenu : Window
     {
+        private AppContext DBContext;
         ObservableCollection<Marker> locations = new ObservableCollection<Marker>();
 
         private void FillDataGrid()
@@ -60,6 +61,8 @@ namespace HydrargyrumBaikal
 
             InitializeComponent();
             FillDataGrid();
+            DBContext = new AppContext();
+           
             //foreach (DataGridColumn column in DGridHydrargyrum.Columns)
             //            {
 
@@ -75,7 +78,17 @@ namespace HydrargyrumBaikal
 
 
         }
+      
 
+        private void ChangeButton_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddMarkerWindow addMarkerWindow = new AddMarkerWindow();
+            addMarkerWindow.Show();
+        }
     }
 }

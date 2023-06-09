@@ -126,3 +126,5 @@ C:\Users\dennm\source\repos\HydrargyrumBaikal\HydrargyrumBaikal\obj\Debug\Angars
 C:\Users\dennm\source\repos\HydrargyrumBaikal\HydrargyrumBaikal\obj\Debug\AngarskMap.baml
 C:\Users\dennm\source\repos\HydrargyrumBaikal\HydrargyrumBaikal\obj\Debug\ShelehovMap.g.cs
 C:\Users\dennm\source\repos\HydrargyrumBaikal\HydrargyrumBaikal\obj\Debug\ShelehovMap.baml
+C:\Users\dennm\source\repos\HydrargyrumBaikal\HydrargyrumBaikal\obj\Debug\AddMarkerWindow.g.cs
+C:\Users\dennm\source\repos\HydrargyrumBaikal\HydrargyrumBaikal\obj\Debug\AddMarkerWindow.baml
