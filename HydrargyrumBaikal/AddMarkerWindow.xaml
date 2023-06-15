@@ -5,28 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HydrargyrumBaikal"
         mc:Ignorable="d"
-        Title="Добавление новой записи" Height="450" Width="800">
+        Title="Добавление новой записи" Height="393" Width="800">
     <Grid>
         <StackPanel>
             <Label Content="ID:" />
-            <TextBox x:Name="IdTextBox" />
+            <TextBox x:Name="IdTextBox" Height="27" />
             
             <Label Content="Название города:" />
-            <TextBox x:Name="CityNameTextBox" />
+            <TextBox x:Name="CityNameTextBox" Height="25" />
 
             <Label Content="Номер:" />
-            <TextBox x:Name="NumberTextBox" />
+            <TextBox x:Name="NumberTextBox" Height="25" />
 
             <Label Content="Долгота:" />
-            <TextBox x:Name="LongitudeTextBox" />
+            <TextBox x:Name="LongitudeTextBox" Height="24" />
 
             <Label Content="Широта:" />
-            <TextBox x:Name="LatitudeTextBox" />
+            <TextBox x:Name="LatitudeTextBox" Height="26" />
 
             <Label Content="Образец:" />
-            <TextBox x:Name="SampleTextBox" />
+            <TextBox x:Name="SampleTextBox" Height="24" />
 
-            <Button Content="Добавить" Click="AddMarkerButton_Click" />
+            <Button Content="Добавить" Click="AddMarkerButton_Click" Height="30" />
         </StackPanel>
     </Grid>
 </Window>

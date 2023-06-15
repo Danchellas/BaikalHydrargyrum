@@ -110,16 +110,11 @@ C:\Users\dennm\source\repos\HydrargyrumBaikal\HydrargyrumBaikal\bin\Debug\System
 C:\Users\dennm\source\repos\HydrargyrumBaikal\HydrargyrumBaikal\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\dennm\source\repos\HydrargyrumBaikal\HydrargyrumBaikal\bin\Debug\System.ValueTuple.xml
 C:\Users\dennm\source\repos\HydrargyrumBaikal\HydrargyrumBaikal\bin\Debug\DynamicData.dll
-C:\Users\dennm\source\repos\HydrargyrumBaikal\HydrargyrumBaikal\bin\Debug\MediatR.Contracts.dll
 C:\Users\dennm\source\repos\HydrargyrumBaikal\HydrargyrumBaikal\bin\Debug\ReactiveUI.dll
-C:\Users\dennm\source\repos\HydrargyrumBaikal\HydrargyrumBaikal\bin\Debug\SolrNet.dll
 C:\Users\dennm\source\repos\HydrargyrumBaikal\HydrargyrumBaikal\bin\Debug\Splat.dll
 C:\Users\dennm\source\repos\HydrargyrumBaikal\HydrargyrumBaikal\bin\Debug\System.Reactive.dll
 C:\Users\dennm\source\repos\HydrargyrumBaikal\HydrargyrumBaikal\bin\Debug\DynamicData.xml
-C:\Users\dennm\source\repos\HydrargyrumBaikal\HydrargyrumBaikal\bin\Debug\MediatR.Contracts.xml
 C:\Users\dennm\source\repos\HydrargyrumBaikal\HydrargyrumBaikal\bin\Debug\ReactiveUI.xml
-C:\Users\dennm\source\repos\HydrargyrumBaikal\HydrargyrumBaikal\bin\Debug\SolrNet.pdb
-C:\Users\dennm\source\repos\HydrargyrumBaikal\HydrargyrumBaikal\bin\Debug\SolrNet.xml
 C:\Users\dennm\source\repos\HydrargyrumBaikal\HydrargyrumBaikal\bin\Debug\Splat.xml
 C:\Users\dennm\source\repos\HydrargyrumBaikal\HydrargyrumBaikal\bin\Debug\System.Reactive.xml
 C:\Users\dennm\source\repos\HydrargyrumBaikal\HydrargyrumBaikal\obj\Debug\AngarskMap.g.cs

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using Microsoft.Data.Sqlite;
+using System.Data.SQLite;
 
 namespace HydrargyrumBaikal
 {
@@ -15,7 +15,7 @@ namespace HydrargyrumBaikal
         public AddMarkerWindow()
         {
             InitializeComponent();
-
+            string connectionString = "Data Source=C:/Users/dennm/source/repos/HydrargyrumBaikal/HydrargyrumBaikal/hgdb.db";
             // создаем контекст данных
             DBContext = new AppContext();
 
