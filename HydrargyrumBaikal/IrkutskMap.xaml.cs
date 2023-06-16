@@ -2,6 +2,7 @@
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.SQLite;
 using System.IO;
 using System.Linq;
@@ -69,35 +70,14 @@ namespace HydrargyrumBaikal
 
             return latitudinalDegrees;
         }
-        List<Marker> mlocations = new List<Marker>();
+        ObservableCollection<Marker> mlocations = new ObservableCollection<Marker>();
+
         public IrkutskMap()
         {
-
+            
             InitializeComponent();
+            FillMarkers(mlocations);
 
-
-            string connectionString = "Data Source=C:/Users/dennm/source/repos/HydrargyrumBaikal/HydrargyrumBaikal/hgdb.db";
-            string query = "SELECT Latitude, Longitude, Sample, Number FROM Markers WHERE City_name = 'Иркутск'";
-            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
-            {
-                connection.Open();
-                using (SQLiteCommand command = new SQLiteCommand(query, connection))
-                {
-                    using (SQLiteDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            double latitude = (double)reader["Latitude"];
-                            double longitude = (double)reader["Longitude"];
-                            double sample = (double)reader["Sample"];
-                            Int64 number = (Int64)reader["Number"];
-
-                            mlocations.Add(new Marker { Latitude = latitude, Longitude = longitude, Sample = sample, Number = number });
-                        }
-
-                    }
-                }
-            }
 
 
             foreach (Marker location in mlocations)
@@ -134,11 +114,38 @@ namespace HydrargyrumBaikal
 
         }
 
+        private void FillMarkers(ObservableCollection<Marker>mlocations)
+        {
+            string connectionString = "Data Source=C:/Users/dennm/source/repos/HydrargyrumBaikal/HydrargyrumBaikal/hgdb.db";
+            string query = "SELECT Latitude, Longitude, Sample, Number FROM Markers WHERE City_name = 'Иркутск'";
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            double latitude = (double)reader["Latitude"];
+                            double longitude = (double)reader["Longitude"];
+                            double sample = (double)reader["Sample"];
+                            Int64 number = (Int64)reader["Number"];
 
+                            mlocations.Add(new Marker { Latitude = latitude, Longitude = longitude, Sample = sample, Number = number });
+                        }
+
+                    }
+                }
+            }
+        }
+        
         private void BDButton_Click(object sender, RoutedEventArgs e)
         {
-            DBMenu DBMenu = new DBMenu();
-            DBMenu.Show();
+            DBMenu dbMenu = new DBMenu();
+            Application.Current.MainWindow.Close();
+            Application.Current.MainWindow = dbMenu;
+            dbMenu.ShowDialog();
         }
 
         private void VizualisationButton_Click(object sender, RoutedEventArgs e)
@@ -220,6 +227,32 @@ namespace HydrargyrumBaikal
             }
         }
 
+        private void WriteToFile(string data)
+        {
+            string fileName = "IrkutskHydrargyrumDB.txt";
+            using (StreamWriter writer = new StreamWriter(fileName))
+            {
+                writer.Write(data);
+            }
+        }
+
+
+        //private void ExportDataToTxtFile()
+        //{
+        //    using (var DbContext = new AppContext())
+        //    {
+        //        var marker = DbContext.Markers.Where(m => m.CityName == "Иркутск").ToList();
+
+        //        using (var writer = new StreamWriter("markers.txt"))
+        //        {
+        //            foreach (Marker location in mlocations)
+        //            {
+        //                writer.WriteLine($"{location.Longitude},{location.Latitude},{location.Sample}");
+        //            }
+        //        }
+        //    }
+        //}
+
         private void ExportButton_Click(object sender, RoutedEventArgs e)
         {
             // создаем диалог сохранения
@@ -247,5 +280,42 @@ namespace HydrargyrumBaikal
                 }
             }
         }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ExportFileButton_Click(object sender, RoutedEventArgs e)
+        {
+            string connectionString = "Data Source=C:/Users/dennm/source/repos/HydrargyrumBaikal/HydrargyrumBaikal/hgdb.db";
+            string query = "SELECT Latitude, Longitude, Sample, Number FROM Markers WHERE City_name = 'Иркутск'";
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                {
+                      string data = "";
+                        foreach (Marker location in mlocations)
+                         {
+                         data += $"Number: {location.Number}, Longitude: {location.Longitude}, Latitude: {location.Latitude}, Sample: {location.Sample}\n";
+                         }
+                         WriteToFile(data);
+ 
+                }
+            }
+            MessageBox.Show("Файл 'IrkutskHydrargyrumDB.txt' успешно сохранен!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            Application.Current.MainWindow.Close();
+            Application.Current.MainWindow = mainWindow;
+            mainWindow.ShowDialog();
+        }
+
+        
     }
 }

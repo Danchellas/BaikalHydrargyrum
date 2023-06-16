@@ -9,24 +9,24 @@
     <Grid>
         <StackPanel>
             <Label Content="ID:" />
-            <TextBox x:Name="IdTextBox" Height="27" />
+            <TextBox Style="{DynamicResource TextBox}" x:Name="IdTextBox" Height="27" />
             
             <Label Content="Название города:" />
-            <TextBox x:Name="CityNameTextBox" Height="25" />
+            <TextBox Style="{DynamicResource TextBox}" x:Name="CityNameTextBox" Height="25" />
 
             <Label Content="Номер:" />
-            <TextBox x:Name="NumberTextBox" Height="25" />
+            <TextBox Style="{DynamicResource TextBox}" x:Name="NumberTextBox" Height="25" />
 
             <Label Content="Долгота:" />
-            <TextBox x:Name="LongitudeTextBox" Height="24" />
+            <TextBox Style="{DynamicResource TextBox}" x:Name="LongitudeTextBox" Height="24" />
 
             <Label Content="Широта:" />
-            <TextBox x:Name="LatitudeTextBox" Height="26" />
+            <TextBox Style="{DynamicResource TextBox}" x:Name="LatitudeTextBox" Height="26" />
 
             <Label Content="Образец:" />
-            <TextBox x:Name="SampleTextBox" Height="24" />
+            <TextBox Style="{DynamicResource TextBox}" x:Name="SampleTextBox" Height="24" />
 
-            <Button Content="Добавить" Click="AddMarkerButton_Click" Height="30" />
+            <Button Style="{DynamicResource ButtonDataBase}" Content="Добавить" Click="AddMarkerButton_Click" Height="30" />
         </StackPanel>
     </Grid>
 </Window>

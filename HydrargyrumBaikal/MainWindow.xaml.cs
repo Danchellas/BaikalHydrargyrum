@@ -24,17 +24,32 @@ namespace HydrargyrumBaikal
         {
             InitializeComponent();
         }
-
+        public void Irkutsk(object sender, RoutedEventArgs e)
+        {
+            
+        }
         private void IrkustkButton_Click(object sender, RoutedEventArgs e)
         {
-            IrkutskMap IrkutskMap = new IrkutskMap();
-            IrkutskMap.Show();
+           IrkutskMap irkutskMap = new IrkutskMap();
+            Application.Current.MainWindow.Close();
+            Application.Current.MainWindow = irkutskMap;
+            irkutskMap.ShowDialog();
         }
 
         private void AngarskButton_Click(object sender, RoutedEventArgs e)
         {
-            AngarskMap AngarskMap = new AngarskMap();
-            AngarskMap.Show();
+            AngarskMap angarskMap = new AngarskMap();
+            Application.Current.MainWindow.Close();
+            Application.Current.MainWindow = angarskMap;
+            angarskMap.ShowDialog();
+        }
+
+        private void ShelehoxButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShelehovMap shelehovMap = new ShelehovMap();
+            Application.Current.MainWindow.Close();
+            Application.Current.MainWindow = shelehovMap;
+            shelehovMap.ShowDialog();
         }
     }
 }

@@ -22,13 +22,13 @@ namespace HydrargyrumBaikal
     /// </summary>
     public partial class DBMenu : Window
     {
-        private AppContext DBContext;
+        private AppContext DbContext;
         ObservableCollection<Marker> locations = new ObservableCollection<Marker>();
 
         private void FillDataGrid()
         {
             string connectionString = "Data Source=C:/Users/dennm/source/repos/HydrargyrumBaikal/HydrargyrumBaikal/hgdb.db";
-            string query = "SELECT Latitude, Longitude, Sample, Number, City_name, id FROM Markers";
+            string query = "SELECT ID, Latitude, Longitude, Sample, Number, City_name FROM Markers";
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
@@ -37,58 +37,46 @@ namespace HydrargyrumBaikal
                     using (SQLiteDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
-                        {   
+                        {
+                            int id = Convert.ToInt32(reader["ID"]);
                             double latitude = (double)reader["Latitude"];
                             double longitude = (double)reader["Longitude"];
                             double sample = (double)reader["Sample"];
                             Int64 number = (Int64)reader["Number"];
                             string cityName = (string)reader["City_name"];
-                            locations.Add(new Marker { Latitude = latitude, Longitude = longitude, Sample = sample, Number = number });
+                            locations.Add(new Marker {ID = id, CityName = cityName, Latitude = latitude, Longitude = longitude, Sample = sample, Number = number });
                         }
                         DGridHydrargyrum.ItemsSource = locations;
-                        
-                        
+
+
                     }
                 }
             }
-            //foreach (Marker location in locations)
-            //{
-            //    this.DGridHydrargyrum.Items.Add(location);
-            //}
+
         }
         public DBMenu()
         {
 
             InitializeComponent();
             FillDataGrid();
-            DBContext = new AppContext();
-           
-            //foreach (DataGridColumn column in DGridHydrargyrum.Columns)
-            //            {
-
-            //                DGridHydrargyrum.Columns.Remove(column);
-
-            //            }
-            //DataContext = locations;
-            //var dg = new DataGrid();
-            //this.MainGrid.Children.Add(dg);
-
-            //List<Marker> locations = new List<Marker>();
-
-
+            DbContext = new AppContext();
 
         }
-      
 
-        private void ChangeButton_Click(object sender, RoutedEventArgs e)
+        private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-
+            MainWindow mainWindow = new MainWindow();
+            Application.Current.MainWindow.Close();
+            Application.Current.MainWindow = mainWindow;
+            mainWindow.ShowDialog();
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             AddMarkerWindow addMarkerWindow = new AddMarkerWindow();
-            addMarkerWindow.Show();
+            Application.Current.MainWindow.Close();
+            Application.Current.MainWindow = addMarkerWindow;
+            addMarkerWindow.ShowDialog();
         }
     }
 }

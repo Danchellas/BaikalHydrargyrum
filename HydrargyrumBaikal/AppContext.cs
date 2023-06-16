@@ -26,7 +26,7 @@ namespace HydrargyrumBaikal
 
         public Marker Read(int id)
         {
-            return Markers.FirstOrDefault(e => e.id == id);
+            return Markers.FirstOrDefault(e => e.ID == id);
         }
 
         public void Update(Marker marker)

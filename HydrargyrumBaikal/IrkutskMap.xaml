@@ -11,52 +11,33 @@
             <ColumnDefinition Width="41*"/>
             <ColumnDefinition Width="19*"/>
         </Grid.ColumnDefinitions>
-        <CheckBox x:Name="Point1" Content="Точка 1" HorizontalAlignment="Left" Margin="39,98,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="25" Width="87"/>
-        <CheckBox x:Name="Point2" Content="Точка 2" HorizontalAlignment="Left" Margin="39,128,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="87"/>
-        <CheckBox x:Name="Point3" Content="Точка 3" HorizontalAlignment="Left" Margin="39,159,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="87"/>
-        <CheckBox x:Name="Point4" Content="Точка 4" HorizontalAlignment="Left" Margin="39,190,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="87"/>
-        <CheckBox x:Name="Point5" Content="Точка 5" HorizontalAlignment="Left" Margin="39,221,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="87"/>
-        <CheckBox x:Name="Point6" Content="Точка 6" HorizontalAlignment="Left" Margin="39,252,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="87"/>
-        <CheckBox x:Name="Point7" Content="Точка 7" HorizontalAlignment="Left" Margin="39,283,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="87"/>
-        <CheckBox x:Name="Point8" Content="Точка 8" HorizontalAlignment="Left" Margin="39,314,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="87"/>
-        <CheckBox x:Name="Point9" Content="Точка 9" HorizontalAlignment="Left" Margin="39,345,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="87"/>
-        <CheckBox x:Name="Point10" Content="Точка 10" HorizontalAlignment="Left" Margin="39,376,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="87"/>
-        <CheckBox x:Name="Point11" Content="Точка 11" HorizontalAlignment="Left" Margin="167,98,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="25" Width="87"/>
-        <CheckBox x:Name="Point12" Content="Точка 12" HorizontalAlignment="Left" Margin="167,128,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="87"/>
-        <CheckBox x:Name="Point13" Content="Точка 13" HorizontalAlignment="Left" Margin="167,159,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="87"/>
-        <CheckBox x:Name="Point14" Content="Точка 14" HorizontalAlignment="Left" Margin="167,190,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="87"/>
-        <CheckBox x:Name="Point15" Content="Точка 15" HorizontalAlignment="Left" Margin="167,221,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="87"/>
-        <CheckBox x:Name="Point16" Content="Точка 16" HorizontalAlignment="Left" Margin="167,252,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="87"/>
-        <CheckBox x:Name="Point17" Content="Точка 17" HorizontalAlignment="Left" Margin="167,283,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="87"/>
-        <CheckBox x:Name="Point18" Content="Точка 18" HorizontalAlignment="Left" Margin="167,314,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="87"/>
-        <CheckBox x:Name="Point19" Content="Точка 19" HorizontalAlignment="Left" Margin="167,345,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="87"/>
-        <CheckBox x:Name="Point20" Content="Точка 20" HorizontalAlignment="Left" Margin="167,376,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="106"/>
-        <Button x:Name="ExportButton" Grid.Column="1" Content="Сохранить" HorizontalAlignment="Left" Margin="26,698,0,0" VerticalAlignment="Top" Height="39" Width="166" FontSize="16" FontFamily="Bahnschrift SemiBold" Click="ExportButton_Click"/>
-        <Button x:Name="BDButton" Grid.Column="1" Content="Перейти к базе данных" HorizontalAlignment="Left" Margin="209,698,0,0" VerticalAlignment="Top" Height="39" Width="180" FontSize="16" FontFamily="Bahnschrift SemiBold" Click="BDButton_Click" RenderTransformOrigin="0.456,0.181"/>
-        <Button x:Name="VizualisationButton" Grid.Column="1" Content="Визуализировать" HorizontalAlignment="Left" Margin="25,644,0,0" VerticalAlignment="Top" Height="39" Width="358" FontSize="16" FontFamily="Bahnschrift SemiBold" Click="VizualisationButton_Click"/>
-        <Label x:Name="label3" Grid.Column="1" Content="Выберите точки мониторинга" HorizontalAlignment="Left" Margin="83,38,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift SemiBold" FontSize="18" Height="33" Width="390"/>
+        <Button Style="{DynamicResource ButtonDataBase}" x:Name="ExportButton" Grid.Column="1" Content="Сохранить карту" HorizontalAlignment="Left" Margin="26,698,0,0" VerticalAlignment="Top" Height="39" Width="166" FontSize="16" FontFamily="Bahnschrift SemiBold" Click="ExportButton_Click"/>
+        <Button Style="{DynamicResource ButtonDataBase}" x:Name="BDButton" Grid.Column="1" Content="Перейти к базе данных" HorizontalAlignment="Left" Margin="115,638,0,0" VerticalAlignment="Top" Height="39" Width="180" FontSize="16" FontFamily="Bahnschrift SemiBold" Click="BDButton_Click" RenderTransformOrigin="0.456,0.181"/>
+        <Button Style="{DynamicResource ButtonDataBase}" x:Name="VizualisationButton" Grid.Column="1" Content="Визуализировать" HorizontalAlignment="Left" Margin="26,478,0,0" VerticalAlignment="Top" Height="40" Width="358" FontSize="16" FontFamily="Bahnschrift SemiBold" Click="VizualisationButton_Click"/>
         <m:Map x:Name="HydragyrumMap" CredentialsProvider="AiW95rnA8msG-ACjKnH_wr3oVKUiz4MtUGC1GY4wqg6Vqp10WfOzBA8SERgNqKa1" Center="52.2864, 104.3050" ZoomLevel="10" Mode="AerialWithLabels" Margin="0,0,0,10">
         </m:Map>
-        <CheckBox x:Name="Point1_Copy" Content="Точка 21" HorizontalAlignment="Left" Margin="285,98,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="25" Width="104"/>
-        <CheckBox x:Name="Point2_Copy" Content="Точка 22" HorizontalAlignment="Left" Margin="285,128,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="104"/>
-        <CheckBox x:Name="Point3_Copy" Content="Точка 23" HorizontalAlignment="Left" Margin="285,159,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Bahnschrift SemiBold" FontWeight="Normal" Grid.Column="1" Height="26" Width="104"/>
-        <Rectangle Fill="Brown" RenderTransformOrigin="6.215,0.621" Grid.Column="1" Margin="24,598,340,120" />
-        <Rectangle Fill="Red" RenderTransformOrigin="6.215,0.621" Grid.Column="1" Margin="24,574,340,142" />
-        <Rectangle Fill="Orange" RenderTransformOrigin="6.215,0.621" Grid.Column="1" Margin="24,551,340,166" />
-        <Rectangle Fill="Yellow" RenderTransformOrigin="6.215,0.621" Grid.Column="1" Margin="24,528,340,189" />
-        <Rectangle Fill="Lime" RenderTransformOrigin="6.215,0.621" Grid.Column="1" Margin="24,507,340,211" />
-        <Rectangle Fill="LimeGreen" RenderTransformOrigin="4.71,0.918" Grid.Column="1" Margin="24,485,340,233" />
-        <Rectangle Fill="Turquoise" RenderTransformOrigin="6.215,0.621" Grid.Column="1" Margin="24,464,340,255" />
-        <Rectangle Fill="DarkCyan" RenderTransformOrigin="6.215,0.621" Grid.Column="1" Margin="24,440,340,277" />
-        <Rectangle Fill="DarkSlateBlue" RenderTransformOrigin="6.215,0.621" Grid.Column="1" Margin="24,417,340,300" />
-        <Label Grid.Column="1" Content="&gt; 34.1 мкг/м3" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="67,598,0,0" VerticalAlignment="Top"/>
-        <Label Grid.Column="1" Content="34 мкг/м3 - 31.4 мкг/м3" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="67,574,0,0" VerticalAlignment="Top"/>
-        <Label Grid.Column="1" Content="31.3 мкг/м3 - 28.7 мкг/м3" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="67,551,0,0" VerticalAlignment="Top"/>
-        <Label Grid.Column="1" Content="28.6 мкг/м3 - 26 мкг/м3" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="67,528,0,0" VerticalAlignment="Top"/>
-        <Label Grid.Column="1" Content="25.9 мкг/м3 - 23.3 мкг/м3" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="67,507,0,0" VerticalAlignment="Top"/>
-        <Label Grid.Column="1" Content="23.2 мкг/м3 - 20.6 мкг/м3" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="67,485,0,0" VerticalAlignment="Top"/>
-        <Label Grid.Column="1" Content="20.5 мкг/м3 - 17.9 мкг/м3" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="67,463,0,0" VerticalAlignment="Top"/>
-        <Label Grid.Column="1" Content="17.8 мкг/м3 - 15.2 мкг/м3 " FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="67,439,0,0" VerticalAlignment="Top"/>
-        <Label Grid.Column="1" Content="&lt; 15.1 мкг/м3" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="67,417,0,0" VerticalAlignment="Top"/>
+
+        <Rectangle Fill="Brown" RenderTransformOrigin="6.215,0.621" Grid.Column="1" Margin="116,388,248,330" />
+        <Rectangle Fill="Red" RenderTransformOrigin="6.215,0.621" Grid.Column="1" Margin="116,364,248,352" />
+        <Rectangle Fill="Orange" RenderTransformOrigin="6.215,0.621" Grid.Column="1" Margin="116,340,248,376" />
+        <Rectangle Fill="Yellow" RenderTransformOrigin="6.215,0.621" Grid.Column="1" Margin="116,318,248,399" />
+        <Rectangle Fill="Lime" RenderTransformOrigin="6.215,0.621" Grid.Column="1" Margin="116,296,248,421" />
+        <Rectangle Fill="LimeGreen" RenderTransformOrigin="4.71,0.918" Grid.Column="1" Margin="116,274,248,443" />
+        <Rectangle Fill="Turquoise" RenderTransformOrigin="6.215,0.621" Grid.Column="1" Margin="116,254,248,465" />
+        <Rectangle Fill="DarkCyan" RenderTransformOrigin="6.215,0.621" Grid.Column="1" Margin="116,230,248,487" />
+        <Rectangle Fill="DarkSlateBlue" RenderTransformOrigin="6.215,0.621" Grid.Column="1" Margin="116,206,248,510" />
+        <Label Grid.Column="1" Content="&gt; 34.1 нг/м3" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,388,0,0" VerticalAlignment="Top"/>
+        <Label Grid.Column="1" Content="34 нг/м3 - 31.4 мкг/м3" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,364,0,0" VerticalAlignment="Top"/>
+        <Label Grid.Column="1" Content="31.3 нг/м3 - 28.7 мкг/м3" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,340,0,0" VerticalAlignment="Top"/>
+        <Label Grid.Column="1" Content="28.6 нг/м3 - 26 мкг/м3" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,318,0,0" VerticalAlignment="Top"/>
+        <Label Grid.Column="1" Content="25.9 нг/м3 - 23.3 мкг/м3" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,296,0,0" VerticalAlignment="Top"/>
+        <Label Grid.Column="1" Content="23.2 нг/м3 - 20.6 мкг/м3" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,274,0,0" VerticalAlignment="Top"/>
+        <Label Grid.Column="1" Content="20.5 нг/м3 - 17.9 мкг/м3" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,252,0,0" VerticalAlignment="Top"/>
+        <Label Grid.Column="1" Content="17.8 нг/м3 - 15.2 мкг/м3 " FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,228,0,0" VerticalAlignment="Top"/>
+        <Label Grid.Column="1" Content="&lt; 15.1 нг/м3" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Center" Margin="0,206,0,0" VerticalAlignment="Top"/>
+        <Button Style="{DynamicResource ButtonDataBase}" x:Name="ExportFileButton" Grid.Column="1" Content="Сохранить данные" HorizontalAlignment="Left" Margin="217,698,0,0" VerticalAlignment="Top" Height="39" Width="166" FontSize="16" FontFamily="Bahnschrift SemiBold" Click="ExportFileButton_Click"/>
+        <Button Style="{DynamicResource ButtonDataBase}" x:Name="backButton" Grid.Column="1" Content="Назад" HorizontalAlignment="Left" Margin="242,10,0,0" VerticalAlignment="Top" Height="39" Width="142" FontSize="16" FontFamily="Bahnschrift SemiBold" Click="BackButton_Click"/>
+        <Label x:Name="Label2" Content="Работа с расчетным модулем" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift SemiBold" Margin="0,100,0,0" Grid.Column="1"/>
+        <Label x:Name="Label3" Content="Работа с данными" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift SemiBold" Margin="0,556,0,0" Grid.Column="1"/>
     </Grid>
 </Window>

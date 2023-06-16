@@ -2,6 +2,7 @@
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.SQLite;
 using System.IO;
 using System.Linq;
@@ -69,35 +70,14 @@ namespace HydrargyrumBaikal
 
             return latitudinalDegrees;
         }
-        List<Marker> mlocations = new List<Marker>();
+        ObservableCollection<Marker> mlocations = new ObservableCollection<Marker>();
+
         public ShelehovMap()
         {
 
             InitializeComponent();
+            FillMarkers(mlocations);
 
-
-            string connectionString = "Data Source=C:/Users/dennm/source/repos/HydrargyrumBaikal/HydrargyrumBaikal/hgdb.db";
-            string query = "SELECT Latitude, Longitude, Sample, Number FROM Markers WHERE City_name = 'Шелехов'";
-            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
-            {
-                connection.Open();
-                using (SQLiteCommand command = new SQLiteCommand(query, connection))
-                {
-                    using (SQLiteDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            double latitude = (double)reader["Latitude"];
-                            double longitude = (double)reader["Longitude"];
-                            double sample = (double)reader["Sample"];
-                            Int64 number = (Int64)reader["Number"];
-
-                            mlocations.Add(new Marker { Latitude = latitude, Longitude = longitude, Sample = sample, Number = number });
-                        }
-
-                    }
-                }
-            }
 
 
             foreach (Marker location in mlocations)
@@ -134,11 +114,46 @@ namespace HydrargyrumBaikal
 
         }
 
+        private void FillMarkers(ObservableCollection<Marker> mlocations)
+        {
+            string connectionString = "Data Source=C:/Users/dennm/source/repos/HydrargyrumBaikal/HydrargyrumBaikal/hgdb.db";
+            string query = "SELECT Latitude, Longitude, Sample, Number FROM Markers WHERE City_name = 'Шелехов'";
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                {
+                    using (SQLiteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            double latitude = (double)reader["Latitude"];
+                            double longitude = (double)reader["Longitude"];
+                            double sample = (double)reader["Sample"];
+                            Int64 number = (Int64)reader["Number"];
+
+                            mlocations.Add(new Marker { Latitude = latitude, Longitude = longitude, Sample = sample, Number = number });
+                        }
+
+                    }
+                }
+            }
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            Application.Current.MainWindow.Close();
+            Application.Current.MainWindow = mainWindow;
+            mainWindow.ShowDialog();
+        }
 
         private void BDButton_Click(object sender, RoutedEventArgs e)
         {
-            DBMenu DBMenu = new DBMenu();
-            DBMenu.Show();
+            DBMenu dbMenu = new DBMenu();
+            Application.Current.MainWindow.Close();
+            Application.Current.MainWindow = dbMenu;
+            dbMenu.ShowDialog();
         }
 
         private void VizualisationButton_Click(object sender, RoutedEventArgs e)
@@ -172,7 +187,6 @@ namespace HydrargyrumBaikal
                     double vmaxLat = tempLat;
                     double vminLong = tempLong;
                     double vmaxLong = tempLong + mapStep;
-                    //locations.Add(new LocationCollection { new Location(vmaxLat, vminLong), new Location(vminLat, vminLong), new Location(vminLat, vmaxLong), new Location(vmaxLat, vmaxLong) }); 
                     tempLong += mapStep;
                     double sum1 = 0;
                     double sum2 = 0;
@@ -198,25 +212,13 @@ namespace HydrargyrumBaikal
                 tempLat -= mapStep;
             }
 
-
-
-
-
-
-
-
             double range = maxSample - minSample;
-
-
-
-
 
             List<Color> pushpincolors = new List<Color>();
 
             foreach (var pushpin in mlocations)
             {
                 double value = pushpin.Sample;
-                //int intervalIndex = (int)Math.Floor((value - minSample) / intervalSize);
                 int intervalIndex = (int)Math.Floor((value - minSample) / (maxSample - minSample) * (colors.Length - 1));
                 if (intervalIndex < 0)
                     intervalIndex = 0;
@@ -231,56 +233,65 @@ namespace HydrargyrumBaikal
                 cindex++;
 
             }
-
-
-
-
-
-
-
-
-            //LocationCollection locations = new LocationCollection()
-            //    {
-            //        new Location(maxLat, minLong),
-            //        new Location(minLat, minLong),
-            //        new Location(minLat, maxLong),
-            //        new Location(maxLat, maxLong),
-            //    };
-            //MapPolygon mapPolygon = new MapPolygon
-            //{
-            //    Opacity = 0.5,
-            //    Fill = new SolidColorBrush(Colors.Red),
-            //    Locations = locations,
-            //};
-            //map.Children.Add(mapPolygon);
         }
+
+        private void WriteToFile(string data)
+        {
+            string fileName = "ShelehovHydrargyrumDB.txt";
+            using (StreamWriter writer = new StreamWriter(fileName))
+            {
+                writer.Write(data);
+            }
+        }
+
 
         private void ExportButton_Click(object sender, RoutedEventArgs e)
         {
-            // создаем диалог сохранения
             SaveFileDialog saveDialog = new SaveFileDialog();
             saveDialog.Filter = "PNG Image|*.png";
             saveDialog.FileName = "map.png";
 
-            // если пользователь выбрал файл и нажал ОК
             if (saveDialog.ShowDialog() == true)
             {
-                // создаем RenderTargetBitmap с размерами карты
                 RenderTargetBitmap renderTargetBitmap = new RenderTargetBitmap((int)ShHydragyrumMap.ActualWidth, (int)ShHydragyrumMap.ActualHeight, 96, 96, PixelFormats.Pbgra32);
 
-                // рендерим карту на RenderTargetBitmap
                 renderTargetBitmap.Render(ShHydragyrumMap);
 
-                // создаем BitmapEncoder для сохранения изображения
                 PngBitmapEncoder pngEncoder = new PngBitmapEncoder();
                 pngEncoder.Frames.Add(BitmapFrame.Create(renderTargetBitmap));
 
-                // сохраняем изображение в файл
                 using (FileStream fileStream = new FileStream(saveDialog.FileName, FileMode.Create))
                 {
                     pngEncoder.Save(fileStream);
                 }
             }
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ExportFileButton_Click(object sender, RoutedEventArgs e)
+        {
+            string connectionString = "Data Source=C:/Users/dennm/source/repos/HydrargyrumBaikal/HydrargyrumBaikal/hgdb.db";
+            string query = "SELECT Latitude, Longitude, Sample, Number FROM Markers WHERE City_name = 'Шелехов'";
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+                using (SQLiteCommand command = new SQLiteCommand(query, connection))
+                {
+                    string data = "";
+                    foreach (Marker location in mlocations)
+                    {
+                        data += $"Number: {location.Number}, Longitude: {location.Longitude}, Latitude: {location.Latitude}, Sample: {location.Sample}\n";
+                    }
+                    WriteToFile(data);
+
+                }
+            }
+            MessageBox.Show("Файл 'ShelehovHydrargyrumDB.txt' успешно сохранен!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+
         }
     }
 }

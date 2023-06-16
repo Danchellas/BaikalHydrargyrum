@@ -123,3 +123,5 @@ C:\Users\dennm\source\repos\HydrargyrumBaikal\HydrargyrumBaikal\obj\Debug\Sheleh
 C:\Users\dennm\source\repos\HydrargyrumBaikal\HydrargyrumBaikal\obj\Debug\ShelehovMap.baml
 C:\Users\dennm\source\repos\HydrargyrumBaikal\HydrargyrumBaikal\obj\Debug\AddMarkerWindow.g.cs
 C:\Users\dennm\source\repos\HydrargyrumBaikal\HydrargyrumBaikal\obj\Debug\AddMarkerWindow.baml
+C:\Users\dennm\source\repos\HydrargyrumBaikal\HydrargyrumBaikal\obj\Debug\App.baml
+C:\Users\dennm\source\repos\HydrargyrumBaikal\HydrargyrumBaikal\obj\Debug\StyleDictionary.baml

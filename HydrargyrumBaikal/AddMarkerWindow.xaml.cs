@@ -5,21 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Data.SQLite;
+using Microsoft.EntityFrameworkCore;
 
 namespace HydrargyrumBaikal
 {
     public partial class AddMarkerWindow : Window
     {
-        private AppContext DBContext;
+        private AppContext DbContext;
 
         public AddMarkerWindow()
         {
             InitializeComponent();
-            string connectionString = "Data Source=C:/Users/dennm/source/repos/HydrargyrumBaikal/HydrargyrumBaikal/hgdb.db";
-            // создаем контекст данных
-            DBContext = new AppContext();
-
-            // добавляем компоненты окна, такие как поля ввода, метки, кнопки и т.д.
+            DbContext = new AppContext();
+            DataContext = DbContext;
+ 
         }
 
         private void AddMarkerButton_Click(object sender, RoutedEventArgs e)
@@ -32,15 +31,10 @@ namespace HydrargyrumBaikal
             double latitude = double.Parse(LatitudeTextBox.Text);
             double sample = double.Parse(SampleTextBox.Text);
 
-            // создаем объект Marker на основе этих данных
             Marker marker = new Marker(id, cityName, longitude, latitude, sample, number);
 
-            // добавляем объект Marker в контекст данных и сохраняем его в базе данных
-            DBContext.Markers.Add(marker);
-            DBContext.SaveChanges();
+            DbContext.Create(marker);
 
-
-            // закрываем окно
             this.Close();
         }
     }
