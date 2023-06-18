@@ -1,4 +1,5 @@
-﻿using Microsoft.Maps.MapControl.WPF;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Maps.MapControl.WPF;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -114,10 +115,12 @@ namespace HydrargyrumBaikal
 
         }
 
-        private void FillMarkers(ObservableCollection<Marker>mlocations)
+        private void FillMarkers(ObservableCollection<Marker> mlocations)
         {
             string connectionString = "Data Source=C:/Users/dennm/source/repos/HydrargyrumBaikal/HydrargyrumBaikal/hgdb.db";
-            string query = "SELECT Latitude, Longitude, Sample, Number FROM Markers WHERE City_name = 'Иркутск'";
+            //string query = "SELECT Markers.latitude, Markers.longitude, Markers.Number, Samples.SampleValue, Cities.City FROM Markers, Samples, Cities WHERE Samples.MarkerId = Markers.MarkerId and Cities.Idcity = Markers.Idcity and Cities.City = 'Иркутск'";
+
+            string query = "SELECT latitude,longitude, number, Sample, City_name FROM Markers WHERE City_name = 'Иркутск'";
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
@@ -132,6 +135,7 @@ namespace HydrargyrumBaikal
                             double sample = (double)reader["Sample"];
                             Int64 number = (Int64)reader["Number"];
 
+
                             mlocations.Add(new Marker { Latitude = latitude, Longitude = longitude, Sample = sample, Number = number });
                         }
 
@@ -139,7 +143,34 @@ namespace HydrargyrumBaikal
                 }
             }
         }
-        
+
+        //private void FillMarkers(ObservableCollection<Marker> mlocations)
+        //{
+        //    using (var appcontext = new AppContext())
+        //    {
+        //        var markers = appcontext.Markers
+        //            .Include(p => p.City)
+        //            .Include(p => p.Sample)
+        //            .Where(p => p.City.CityName == "Иркутск")
+        //            .ToList();
+
+        //        foreach (var marker in markers)
+        //        {
+        //            mlocations.Add(new Marker
+        //            {
+        //                MarkerId = marker.MarkerId,
+        //                Number = marker.Number,
+        //                Idcity = marker.Idcity,
+        //                DataTime = marker.DataTime,
+        //                Longitude = marker.Longitude,
+        //                Latitude = marker.Latitude,
+        //                City = marker.City,
+        //                Sample = marker.Sample
+        //            });
+        //        }
+        //    }
+        //}
+
         private void BDButton_Click(object sender, RoutedEventArgs e)
         {
             DBMenu dbMenu = new DBMenu();
@@ -226,6 +257,8 @@ namespace HydrargyrumBaikal
 
             }
         }
+
+       
 
         private void WriteToFile(string data)
         {
@@ -316,6 +349,77 @@ namespace HydrargyrumBaikal
             mainWindow.ShowDialog();
         }
 
-        
+        private void SummVizualisationButton_Click(object sender, RoutedEventArgs e)
+        {
+            double stepik = CoordinatesInMeters(4000 / Math.Sqrt(2));
+            List<LocationCollection> locations = new List<LocationCollection>();
+            List<Color> squarecolors = new List<Color>();
+            tempLat = maxLat + stepik;
+            tempLong = minLong - stepik;
+            minLat -= stepik;
+            maxLong += stepik;
+            map = App.Current.MainWindow.FindName("HydragyrumMap") as Map;
+            Color[] colors = new Color[] { Colors.DarkSlateBlue, Colors.DarkCyan, Colors.Turquoise, Colors.LimeGreen, Colors.Lime, Colors.Yellow, Colors.Orange, Colors.Red, Colors.Brown, Colors.Black };
+
+            // расчет палитры цветов
+            foreach (var pushpin in mlocations)
+            {
+
+                if (pushpin.Sample < minSample)
+                    minSample = pushpin.Sample;
+                if (pushpin.Sample > maxSample)
+                    maxSample = pushpin.Sample;
+            }
+
+            while (tempLat > minLat)
+            {
+                while (tempLong < maxLong)
+                {
+
+                    double vminLat = tempLat - mapStep;
+                    double vmaxLat = tempLat;
+                    double vminLong = tempLong;
+                    double vmaxLong = tempLong + mapStep;
+                    tempLong += mapStep;
+                    double qsum1 = 0;
+                    double q = 0;
+                    foreach (var marker in mlocations)
+                    {
+
+                        qsum1 += CoordinatesInMeters((marker.Sample * mapStep) * mapStep);
+                        
+                    }
+                   
+                      q += (qsum1 * 365) / 110;  
+
+                }
+                //MessageBox.Show("Результат: " + q);
+                tempLong = minLong - stepik;
+                tempLat -= mapStep;  
+            }
+
+          
+            double range = maxSample - minSample;
+
+            List<Color> pushpincolors = new List<Color>();
+
+            foreach (var pushpin in mlocations)
+            {
+                double value = pushpin.Sample;
+                int intervalIndex = (int)Math.Floor((value - minSample) / (maxSample - minSample) * (colors.Length - 1));
+                if (intervalIndex < 0)
+                    intervalIndex = 0;
+                if (intervalIndex >= colors.Length)
+                    intervalIndex = colors.Length - 1;
+                pushpincolors.Add(colors[intervalIndex]);
+            }
+            int cindex = 0;
+            foreach (var pushpin in map.Children.OfType<Pushpin>())
+            {
+                pushpin.Background = new SolidColorBrush(pushpincolors[cindex]);
+                cindex++;
+
+            }
+        }
     }
 }

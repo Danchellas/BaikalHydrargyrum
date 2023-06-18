@@ -25,15 +25,15 @@
         <Button Style="{DynamicResource ButtonDataBase}" x:Name="VizualisationButton" Grid.Column="1" Content="Визуализировать" HorizontalAlignment="Center" Margin="0,486,0,0" VerticalAlignment="Top" Height="38" Width="358" FontSize="16" FontFamily="Bahnschrift SemiBold" Click="VizualisationButton_Click"/>
         <m:Map x:Name="AHydragyrumMap" CredentialsProvider="AiW95rnA8msG-ACjKnH_wr3oVKUiz4MtUGC1GY4wqg6Vqp10WfOzBA8SERgNqKa1" Center="52.5366700, 103.8863900" ZoomLevel="11" Mode="AerialWithLabels" Margin="0,0,0,10">
         </m:Map>
-        <Label Grid.Column="1" Content="&gt; 35.3 нг/м3" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,392,0,0" VerticalAlignment="Top"/>
-        <Label Grid.Column="1" Content="35.2 нг/м3 - 32.3 нг/м3" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,368,0,0" VerticalAlignment="Top"/>
-        <Label Grid.Column="1" Content="32.2 нг/м3 - 29.3 нг/м3" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,345,0,0" VerticalAlignment="Top"/>
-        <Label Grid.Column="1" Content="29.2 нг/м3 - 26.3 нг/м3" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,322,0,0" VerticalAlignment="Top"/>
-        <Label Grid.Column="1" Content="26.2 нг/м3 - 23.3 нг/м3" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,301,0,0" VerticalAlignment="Top"/>
-        <Label Grid.Column="1" Content="23.2 нг/м3 - 20.3 нг/м3" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,279,0,0" VerticalAlignment="Top"/>
-        <Label Grid.Column="1" Content="17.2 нг/м3 - 14.3 нг/м3" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,256,0,0" VerticalAlignment="Top"/>
-        <Label Grid.Column="1" Content="14.2 нг/м3 - 11.3 нг/м3 " FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,233,0,0" VerticalAlignment="Top"/>
-        <Label Grid.Column="1" Content="&lt; 11.2 нг/м3" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Center" Margin="0,211,0,0" VerticalAlignment="Top"/>
+        <Label Grid.Column="1" Content="&gt; 35.3 нг/г" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,392,0,0" VerticalAlignment="Top"/>
+        <Label Grid.Column="1" Content="35.2 нг/г - 32.3 нг/г" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,368,0,0" VerticalAlignment="Top"/>
+        <Label Grid.Column="1" Content="32.2 нг/г - 29.3 нг/г" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,345,0,0" VerticalAlignment="Top"/>
+        <Label Grid.Column="1" Content="29.2 нг/г - 26.3 нг/г" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,322,0,0" VerticalAlignment="Top"/>
+        <Label Grid.Column="1" Content="26.2 нг/г - 23.3 нг/г" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,301,0,0" VerticalAlignment="Top"/>
+        <Label Grid.Column="1" Content="23.2 нг/г - 20.3 нг/г" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,279,0,0" VerticalAlignment="Top"/>
+        <Label Grid.Column="1" Content="17.2 нг/г - 14.3 нг/г" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,256,0,0" VerticalAlignment="Top"/>
+        <Label Grid.Column="1" Content="14.2 нг/г - 11.3 нг/г " FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,233,0,0" VerticalAlignment="Top"/>
+        <Label Grid.Column="1" Content="&lt; 11.2 нг/г" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Center" Margin="0,211,0,0" VerticalAlignment="Top"/>
         <Button Style="{DynamicResource ButtonDataBase}" x:Name="ExportFileButton" Grid.Column="1" Content="Сохранить данные" HorizontalAlignment="Left" Margin="217,703,0,0" VerticalAlignment="Top" Height="39" Width="166" FontSize="16" FontFamily="Bahnschrift SemiBold" Click="ExportFileButton_Click"/>
         <Button Style="{DynamicResource ButtonDataBase}" x:Name="backButton" Grid.Column="1" Content="Назад" HorizontalAlignment="Left" Margin="242,10,0,0" VerticalAlignment="Top" Height="39" Width="142" FontSize="16" FontFamily="Bahnschrift SemiBold" Click="BackButton_Click"/>
         <Label x:Name="Label2" Content="Работа с расчетным модулем" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift SemiBold" Margin="0,104,0,0" Grid.Column="1"/>
