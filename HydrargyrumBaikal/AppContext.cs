@@ -18,7 +18,32 @@ namespace HydrargyrumBaikal
         {
             optionsBuilder.UseSqlite("Data Source=hgdb.db");
         }
-          
+        public void Create(Marker marker)
+        {
+            Markers.Add(marker);
+            SaveChanges();
+        }
+
+        public Marker Read(int id)
+        {
+            return Markers.FirstOrDefault(e => e.ID == id);
+        }
+
+        public void Update(Marker marker)
+        {
+            Markers.Update(marker);
+            SaveChanges();
+        }
+
+        public void Delete(int id)
+        {
+            var marker = Read(id);
+            if (marker != null)
+            {
+                Markers.Remove(marker);
+                SaveChanges();
+            }
+        }
     }
 
 }

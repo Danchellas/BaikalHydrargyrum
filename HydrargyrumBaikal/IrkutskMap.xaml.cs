@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Maps.MapControl.WPF;
+﻿using Microsoft.Maps.MapControl.WPF;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -33,13 +32,17 @@ namespace HydrargyrumBaikal
         static double maxLat = -90;
         static double minLong = 180;
         static double maxLong = -180;
-        double mapStep = CoordinatesInMeters(100);
+        double mapStep = CoordinatesInMeters(250);
         double tempLat;
         double tempLong;
         double minSample = double.MaxValue;
         double maxSample = double.MinValue;
         private const double RadiusInKm = 6371;
-
+        double dx = 0.25;
+        double dy = 0.25;
+        double qsum1 = 0;
+        double q = 0;
+        double qq = 0;
 
         public static double DistanceCalc(double lat1, double lon1, double lat2, double lon2)
         {
@@ -115,12 +118,10 @@ namespace HydrargyrumBaikal
 
         }
 
-        private void FillMarkers(ObservableCollection<Marker> mlocations)
+        private void FillMarkers(ObservableCollection<Marker>mlocations)
         {
-            string connectionString = "Data Source=C:/Users/dennm/source/repos/HydrargyrumBaikal/HydrargyrumBaikal/hgdb.db";
-            //string query = "SELECT Markers.latitude, Markers.longitude, Markers.Number, Samples.SampleValue, Cities.City FROM Markers, Samples, Cities WHERE Samples.MarkerId = Markers.MarkerId and Cities.Idcity = Markers.Idcity and Cities.City = 'Иркутск'";
-
-            string query = "SELECT latitude,longitude, number, Sample, City_name FROM Markers WHERE City_name = 'Иркутск'";
+            string connectionString = "Data Source=C:/Users/dennm/source/repos/123/BaikalHydrargyrum/HydrargyrumBaikal/hgdb.db";
+            string query = "SELECT Latitude, Longitude, Sample, Number FROM Markers WHERE City_name = 'Иркутск'";
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
@@ -135,7 +136,6 @@ namespace HydrargyrumBaikal
                             double sample = (double)reader["Sample"];
                             Int64 number = (Int64)reader["Number"];
 
-
                             mlocations.Add(new Marker { Latitude = latitude, Longitude = longitude, Sample = sample, Number = number });
                         }
 
@@ -143,34 +143,7 @@ namespace HydrargyrumBaikal
                 }
             }
         }
-
-        //private void FillMarkers(ObservableCollection<Marker> mlocations)
-        //{
-        //    using (var appcontext = new AppContext())
-        //    {
-        //        var markers = appcontext.Markers
-        //            .Include(p => p.City)
-        //            .Include(p => p.Sample)
-        //            .Where(p => p.City.CityName == "Иркутск")
-        //            .ToList();
-
-        //        foreach (var marker in markers)
-        //        {
-        //            mlocations.Add(new Marker
-        //            {
-        //                MarkerId = marker.MarkerId,
-        //                Number = marker.Number,
-        //                Idcity = marker.Idcity,
-        //                DataTime = marker.DataTime,
-        //                Longitude = marker.Longitude,
-        //                Latitude = marker.Latitude,
-        //                City = marker.City,
-        //                Sample = marker.Sample
-        //            });
-        //        }
-        //    }
-        //}
-
+        
         private void BDButton_Click(object sender, RoutedEventArgs e)
         {
             DBMenu dbMenu = new DBMenu();
@@ -226,7 +199,7 @@ namespace HydrargyrumBaikal
                         Fill = new SolidColorBrush(colors[(int)Math.Floor(((sum1 / sum2) - minSample) / (maxSample - minSample) * (colors.Length - 1))]),
                         Locations = new LocationCollection { new Location(vmaxLat, vminLong), new Location(vminLat, vminLong), new Location(vminLat, vmaxLong), new Location(vmaxLat, vmaxLong),
 
-                    }
+                         }
                     };
                     map.Children.Add(mapPolygon);
 
@@ -258,11 +231,9 @@ namespace HydrargyrumBaikal
             }
         }
 
-       
-
         private void WriteToFile(string data)
         {
-            string fileName = "IrkutskHydrargyrumDB.txt";
+            string fileName = "!IrkutskHydrargyrumDB.txt";
             using (StreamWriter writer = new StreamWriter(fileName))
             {
                 writer.Write(data);
@@ -321,7 +292,7 @@ namespace HydrargyrumBaikal
 
         private void ExportFileButton_Click(object sender, RoutedEventArgs e)
         {
-            string connectionString = "Data Source=C:/Users/dennm/source/repos/HydrargyrumBaikal/HydrargyrumBaikal/hgdb.db";
+            string connectionString = "Data Source=C:/Users/dennm/source/repos/123/BaikalHydrargyrum/HydrargyrumBaikal/hgdb.db";
             string query = "SELECT Latitude, Longitude, Sample, Number FROM Markers WHERE City_name = 'Иркутск'";
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
@@ -348,7 +319,6 @@ namespace HydrargyrumBaikal
             Application.Current.MainWindow = mainWindow;
             mainWindow.ShowDialog();
         }
-
         private void SummVizualisationButton_Click(object sender, RoutedEventArgs e)
         {
             double stepik = CoordinatesInMeters(4000 / Math.Sqrt(2));
@@ -381,24 +351,25 @@ namespace HydrargyrumBaikal
                     double vminLong = tempLong;
                     double vmaxLong = tempLong + mapStep;
                     tempLong += mapStep;
-                    double qsum1 = 0;
-                    double q = 0;
+
                     foreach (var marker in mlocations)
                     {
 
-                        qsum1 += CoordinatesInMeters((marker.Sample * mapStep) * mapStep);
-                        
+                        qsum1 += CoordinatesInMeters(((marker.Sample) * dx) * dy);
+
                     }
-                   
-                      q += (qsum1 * 365) / 110;  
 
+                    q += (qsum1 * 365) / 130;
+
+                    qq = q / 23;  
+                    qq = Math.Round(q, 3);
                 }
-                //MessageBox.Show("Результат: " + q);
-                tempLong = minLong - stepik;
-                tempLat -= mapStep;  
-            }
 
-          
+                tempLong = minLong - stepik;
+                tempLat -= mapStep;
+            }
+                MessageBox.Show("Результат:" + qq);
+
             double range = maxSample - minSample;
 
             List<Color> pushpincolors = new List<Color>();
@@ -421,5 +392,6 @@ namespace HydrargyrumBaikal
 
             }
         }
+
     }
 }

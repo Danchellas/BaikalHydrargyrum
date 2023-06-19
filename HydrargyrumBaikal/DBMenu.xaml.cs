@@ -27,7 +27,7 @@ namespace HydrargyrumBaikal
 
         private void FillDataGrid()
         {
-            string connectionString = "Data Source=C:/Users/dennm/source/repos/HydrargyrumBaikal/HydrargyrumBaikal/hgdb.db";
+            string connectionString = "Data Source=C:/Users/dennm/source/repos/123/BaikalHydrargyrum/HydrargyrumBaikal/hgdb.db";
             string query = "SELECT ID, Latitude, Longitude, Sample, Number, City_name FROM Markers";
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HydrargyrumBaikal" xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
         mc:Ignorable="d"
-        Title="IrkutskMap" Height="800" Width="1280">
+        Title="IrkutskMap" Height="800" Width="1280" WindowStartupLocation="CenterScreen">
     <Grid Margin="0,10,0,13" HorizontalAlignment="Center" Width="1260">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="41*"/>
@@ -13,32 +13,32 @@
         </Grid.ColumnDefinitions>
         <Button Style="{DynamicResource ButtonDataBase}" x:Name="ExportButton" Grid.Column="1" Content="Сохранить карту" HorizontalAlignment="Left" Margin="26,698,0,0" VerticalAlignment="Top" Height="39" Width="166" FontSize="16" FontFamily="Bahnschrift SemiBold" Click="ExportButton_Click"/>
         <Button Style="{DynamicResource ButtonDataBase}" x:Name="BDButton" Grid.Column="1" Content="Перейти к базе данных" HorizontalAlignment="Left" Margin="115,638,0,0" VerticalAlignment="Top" Height="39" Width="180" FontSize="16" FontFamily="Bahnschrift SemiBold" Click="BDButton_Click" RenderTransformOrigin="0.456,0.181"/>
-        <Button Style="{DynamicResource ButtonDataBase}" x:Name="VizualisationButton" Grid.Column="1" Content="Визуализировать" HorizontalAlignment="Left" Margin="26,457,0,0" VerticalAlignment="Top" Height="40" Width="358" FontSize="16" FontFamily="Bahnschrift SemiBold" Click="VizualisationButton_Click"/>
+        <Button Style="{DynamicResource ButtonDataBase}" x:Name="VizualisationButton" Grid.Column="1" Content="Визуализировать" HorizontalAlignment="Left" Margin="26,435,0,0" VerticalAlignment="Top" Height="40" Width="358" FontSize="16" FontFamily="Bahnschrift SemiBold" Click="VizualisationButton_Click"/>
         <m:Map x:Name="HydragyrumMap" CredentialsProvider="AiW95rnA8msG-ACjKnH_wr3oVKUiz4MtUGC1GY4wqg6Vqp10WfOzBA8SERgNqKa1" Center="52.2864, 104.3050" ZoomLevel="10" Mode="AerialWithLabels" Margin="0,0,0,10">
         </m:Map>
 
-        <Rectangle Fill="Brown" RenderTransformOrigin="6.215,0.621" Grid.Column="1" Margin="116,388,248,330" />
-        <Rectangle Fill="Red" RenderTransformOrigin="6.215,0.621" Grid.Column="1" Margin="116,364,248,352" />
-        <Rectangle Fill="Orange" RenderTransformOrigin="6.215,0.621" Grid.Column="1" Margin="116,340,248,376" />
-        <Rectangle Fill="Yellow" RenderTransformOrigin="6.215,0.621" Grid.Column="1" Margin="116,318,248,399" />
-        <Rectangle Fill="Lime" RenderTransformOrigin="6.215,0.621" Grid.Column="1" Margin="116,296,248,421" />
-        <Rectangle Fill="LimeGreen" RenderTransformOrigin="4.71,0.918" Grid.Column="1" Margin="116,274,248,443" />
-        <Rectangle Fill="Turquoise" RenderTransformOrigin="6.215,0.621" Grid.Column="1" Margin="116,254,248,465" />
-        <Rectangle Fill="DarkCyan" RenderTransformOrigin="6.215,0.621" Grid.Column="1" Margin="116,230,248,487" />
-        <Rectangle Fill="DarkSlateBlue" RenderTransformOrigin="6.215,0.621" Grid.Column="1" Margin="116,206,248,510" />
-        <Label Grid.Column="1" Content="&gt; 34.1 нг/г" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,388,0,0" VerticalAlignment="Top"/>
-        <Label Grid.Column="1" Content="34 нг/г - 31.4 нг/г" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,364,0,0" VerticalAlignment="Top"/>
-        <Label Grid.Column="1" Content="31.3 нг/г - 28.7 нг/г" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,340,0,0" VerticalAlignment="Top"/>
-        <Label Grid.Column="1" Content="28.6 нг/г - 26 нг/г" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,318,0,0" VerticalAlignment="Top"/>
-        <Label Grid.Column="1" Content="25.9 нг/г - 23.3 нг/г" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,296,0,0" VerticalAlignment="Top"/>
-        <Label Grid.Column="1" Content="23.2 нг/г - 20.6 нг/г" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,274,0,0" VerticalAlignment="Top"/>
-        <Label Grid.Column="1" Content="20.5 нг/г - 17.9 нг/г" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,252,0,0" VerticalAlignment="Top"/>
-        <Label Grid.Column="1" Content="17.8 нг/г - 15.2 нг/г " FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,228,0,0" VerticalAlignment="Top"/>
-        <Label Grid.Column="1" Content="&lt; 15.1 нг/г" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Center" Margin="0,206,0,0" VerticalAlignment="Top"/>
+        <Rectangle Fill="Brown" RenderTransformOrigin="6.215,0.621" Grid.Column="1" Margin="116,363,248,355" />
+        <Rectangle Fill="Red" RenderTransformOrigin="6.215,0.621" Grid.Column="1" Margin="116,339,248,377" />
+        <Rectangle Fill="Orange" RenderTransformOrigin="6.215,0.621" Grid.Column="1" Margin="116,315,248,401" />
+        <Rectangle Fill="Yellow" RenderTransformOrigin="6.215,0.621" Grid.Column="1" Margin="116,293,248,424" />
+        <Rectangle Fill="Lime" RenderTransformOrigin="6.215,0.621" Grid.Column="1" Margin="116,271,248,446" />
+        <Rectangle Fill="LimeGreen" RenderTransformOrigin="4.71,0.918" Grid.Column="1" Margin="116,249,248,468" />
+        <Rectangle Fill="Turquoise" RenderTransformOrigin="6.215,0.621" Grid.Column="1" Margin="116,229,248,490" />
+        <Rectangle Fill="DarkCyan" RenderTransformOrigin="6.215,0.621" Grid.Column="1" Margin="116,205,248,512" />
+        <Rectangle Fill="DarkSlateBlue" RenderTransformOrigin="6.215,0.621" Grid.Column="1" Margin="116,181,248,535" />
+        <Label Grid.Column="1" Content="&gt; 34.1 нг/м3" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,363,0,0" VerticalAlignment="Top"/>
+        <Label Grid.Column="1" Content="34 нг/м3 - 31.4 нг/м3" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,339,0,0" VerticalAlignment="Top"/>
+        <Label Grid.Column="1" Content="31.3 нг/м3 - 28.7 нг/м3" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,315,0,0" VerticalAlignment="Top"/>
+        <Label Grid.Column="1" Content="28.6 нг/м3 - 26 нг/м3" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,293,0,0" VerticalAlignment="Top"/>
+        <Label Grid.Column="1" Content="25.9 нг/м3 - 23.3 нг/м3" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,271,0,0" VerticalAlignment="Top"/>
+        <Label Grid.Column="1" Content="23.2 нг/м3 - 20.6 нг/м3" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,249,0,0" VerticalAlignment="Top"/>
+        <Label Grid.Column="1" Content="20.5 нг/м3 - 17.9 нг/м3" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,227,0,0" VerticalAlignment="Top"/>
+        <Label Grid.Column="1" Content="17.8 нг/м3 - 15.2 нг/м3 " FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Left" Margin="159,203,0,0" VerticalAlignment="Top"/>
+        <Label Grid.Column="1" Content="&lt; 15.1 нг/м3" FontFamily="Bahnschrift SemiBold" FontSize ="13" HorizontalAlignment="Center" Margin="0,181,0,0" VerticalAlignment="Top"/>
         <Button Style="{DynamicResource ButtonDataBase}" x:Name="ExportFileButton" Grid.Column="1" Content="Сохранить данные" HorizontalAlignment="Left" Margin="217,698,0,0" VerticalAlignment="Top" Height="39" Width="166" FontSize="16" FontFamily="Bahnschrift SemiBold" Click="ExportFileButton_Click"/>
         <Button Style="{DynamicResource ButtonDataBase}" x:Name="backButton" Grid.Column="1" Content="Назад" HorizontalAlignment="Left" Margin="242,10,0,0" VerticalAlignment="Top" Height="39" Width="142" FontSize="16" FontFamily="Bahnschrift SemiBold" Click="BackButton_Click"/>
         <Label x:Name="Label2" Content="Работа с расчетным модулем" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift SemiBold" Margin="0,100,0,0" Grid.Column="1"/>
-        <Label x:Name="Label3" Content="Работа с данными" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift SemiBold" Margin="115,574,0,0" Grid.Column="1"/>
-        <Button Style="{DynamicResource ButtonDataBase}" x:Name="SummVizualisationButton" Grid.Column="1" Content="Визуализировать" HorizontalAlignment="Left" Margin="26,514,0,0" VerticalAlignment="Top" Height="37" Width="357" FontSize="16" FontFamily="Bahnschrift SemiBold" Click="SummVizualisationButton_Click"/>
+        <Label x:Name="Label3" Content="Работа с данными" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift SemiBold" Margin="0,556,0,0" Grid.Column="1"/>
+        <Button Style="{DynamicResource ButtonDataBase}" x:Name="SummVizualisationButton_Copy" Grid.Column="1" Content="Расчет годового суммарного загрязнения" HorizontalAlignment="Left" Margin="25,497,0,0" VerticalAlignment="Top" Height="40" Width="358" FontSize="16" FontFamily="Bahnschrift SemiBold" Click="SummVizualisationButton_Click"/>
     </Grid>
 </Window>

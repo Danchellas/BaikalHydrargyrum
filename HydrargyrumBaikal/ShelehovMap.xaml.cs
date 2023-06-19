@@ -32,12 +32,17 @@ namespace HydrargyrumBaikal
         static double maxLat = -90;
         static double minLong = 180;
         static double maxLong = -180;
-        double mapStep = CoordinatesInMeters(100);
+        double mapStep = CoordinatesInMeters(250);
         double tempLat;
         double tempLong;
         double minSample = double.MaxValue;
         double maxSample = double.MinValue;
         private const double RadiusInKm = 6371;
+        double dx = 0.25;
+        double dy = 0.25;
+        double qsum1 = 0;
+        double q = 0;
+        double qq = 0;
 
 
         public static double DistanceCalc(double lat1, double lon1, double lat2, double lon2)
@@ -116,7 +121,7 @@ namespace HydrargyrumBaikal
 
         private void FillMarkers(ObservableCollection<Marker> mlocations)
         {
-            string connectionString = "Data Source=C:/Users/dennm/source/repos/HydrargyrumBaikal/HydrargyrumBaikal/hgdb.db";
+            string connectionString = "Data Source=C:/Users/dennm/source/repos/123/BaikalHydrargyrum/HydrargyrumBaikal/hgdb.db";
             string query = "SELECT Latitude, Longitude, Sample, Number FROM Markers WHERE City_name = 'Шелехов'";
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
@@ -237,7 +242,7 @@ namespace HydrargyrumBaikal
 
         private void WriteToFile(string data)
         {
-            string fileName = "ShelehovHydrargyrumDB.txt";
+            string fileName = "!ShelehovHydrargyrumDB.txt";
             using (StreamWriter writer = new StreamWriter(fileName))
             {
                 writer.Write(data);
@@ -274,7 +279,7 @@ namespace HydrargyrumBaikal
 
         private void ExportFileButton_Click(object sender, RoutedEventArgs e)
         {
-            string connectionString = "Data Source=C:/Users/dennm/source/repos/HydrargyrumBaikal/HydrargyrumBaikal/hgdb.db";
+            string connectionString = "Data Source=C:/Users/dennm/source/repos/123/BaikalHydrargyrum/HydrargyrumBaikal/hgdb.db";
             string query = "SELECT Latitude, Longitude, Sample, Number FROM Markers WHERE City_name = 'Шелехов'";
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
@@ -291,6 +296,64 @@ namespace HydrargyrumBaikal
                 }
             }
             MessageBox.Show("Файл 'ShelehovHydrargyrumDB.txt' успешно сохранен!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+
+     
+        }
+        private void SummVizualisationButton_Click(object sender, RoutedEventArgs e)
+        {
+            double stepik = CoordinatesInMeters(4000 / Math.Sqrt(2));
+            List<LocationCollection> locations = new List<LocationCollection>();
+            List<Color> squarecolors = new List<Color>();
+            tempLat = maxLat + stepik;
+            tempLong = minLong - stepik;
+            minLat -= stepik;
+            maxLong += stepik;
+            map = App.Current.MainWindow.FindName("HydragyrumMap") as Map;
+            Color[] colors = new Color[] { Colors.DarkSlateBlue, Colors.DarkCyan, Colors.Turquoise, Colors.LimeGreen, Colors.Lime, Colors.Yellow, Colors.Orange, Colors.Red, Colors.Brown, Colors.Black };
+
+            // расчет палитры цветов
+            foreach (var pushpin in mlocations)
+            {
+
+                if (pushpin.Sample < minSample)
+                    minSample = pushpin.Sample;
+                if (pushpin.Sample > maxSample)
+                    maxSample = pushpin.Sample;
+            }
+
+            while (tempLat > minLat)
+            {
+                while (tempLong < maxLong)
+                {
+
+                    double vminLat = tempLat - mapStep;
+                    double vmaxLat = tempLat;
+                    double vminLong = tempLong;
+                    double vmaxLong = tempLong + mapStep;
+                    tempLong += mapStep;
+
+                    foreach (var marker in mlocations)
+                    {
+
+                        qsum1 += CoordinatesInMeters((marker.Sample * dx) * dy);
+
+                    }
+
+                    q += (qsum1 * 365) / 130;
+                    qq = Math.Round(q, 2);
+
+                }
+
+                tempLong = minLong - stepik;
+                tempLat -= mapStep;
+            }
+            MessageBox.Show("Результат в нг:" + qq, "Расчет за год");
+            qsum1 = 0;
+            q = 0;
+            qq = 0;
+
+            double range = maxSample - minSample;
+
 
         }
     }

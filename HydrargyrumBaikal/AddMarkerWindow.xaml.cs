@@ -33,7 +33,7 @@ namespace HydrargyrumBaikal
 
             Marker marker = new Marker(id, cityName, longitude, latitude, sample, number);
 
-            //DbContext.Create(marker);
+            DbContext.Create(marker);
 
             this.Close();
         }
